@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_july_3_netflix_clone/dummy_db.dart';
 import 'package:flutter_july_3_netflix_clone/utils/constants/color_constants.dart';
 import 'package:flutter_july_3_netflix_clone/view/coming_soon_screen/coming_soon_screen.dart';
 import 'package:flutter_july_3_netflix_clone/view/home_screen/home_screen.dart';
+import 'package:flutter_july_3_netflix_clone/view/more_screen/more_screen.dart';
 import 'package:flutter_july_3_netflix_clone/view/search_screen/search_screen.dart';
 
 class BottomNavScreen extends StatefulWidget {
@@ -19,7 +19,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     SearchScreen(),
     CommingSoonSreen(),
     Container(color: Colors.blue),
-    Container(color: Colors.grey),
+    Morescreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -32,15 +32,13 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         selectedItemColor: ColorConstants.mainwhite,
         unselectedItemColor: Colors.grey,
         type: BottomNavigationBarType.fixed,
-        unselectedFontSize: 10,
-        selectedFontSize: 10,
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.home_outlined), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
           BottomNavigationBarItem(
               icon: Icon(Icons.video_collection_outlined),
-              label: "Comming soon"),
+              label: "Coming soon"),
           BottomNavigationBarItem(
               icon: Icon(Icons.file_download_sharp), label: "Downloads"),
           BottomNavigationBarItem(icon: Icon(Icons.menu), label: "More"),

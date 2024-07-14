@@ -3,6 +3,7 @@ import 'package:flutter_july_3_netflix_clone/dummy_db.dart';
 import 'package:flutter_july_3_netflix_clone/utils/constants/color_constants.dart';
 import 'package:flutter_july_3_netflix_clone/utils/constants/image_constants.dart';
 import 'package:flutter_july_3_netflix_clone/view/bottom_nav_screen/bottom_nav_screen.dart';
+import 'package:flutter_july_3_netflix_clone/view/global_widgets/user_name_card.dart';
 import 'package:flutter_july_3_netflix_clone/view/home_screen/home_screen.dart';
 
 class UserNameScreen extends StatefulWidget {
@@ -43,41 +44,22 @@ class _UserNameScreenState extends State<UserNameScreen> {
               crossAxisCount: 2, crossAxisSpacing: 10, mainAxisExtent: 130),
           itemBuilder: (context, index) {
             if (index < DummyDb.userList.length) {
-              return InkWell(
-                onTap: () {
+              return UserNameCard(
+                imagePath: DummyDb.userList[index]["imagePath"].toString(),
+                userName: DummyDb.userList[index]["name"].toString(),
+                onCardPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => BottomNavScreen(),
                       ));
                 },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Image.asset(
-                      DummyDb.userList[index]["imagePath"].toString(),
-                    ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Text(
-                      DummyDb.userList[index]["name"].toString(),
-                      style: TextStyle(
-                        color: ColorConstants.mainwhite,
-                        fontSize: 13.25,
-                      ),
-                    )
-                  ],
-                ),
               );
             } else {
               return InkWell(
                 onTap: () {
                   DummyDb.userList.add(
-                    {
-                      "imagePath": ImageConstants.user1__png,
-                      "name": "astdfygh"
-                    },
+                    {"imagePath": ImageConstants.user1__png, "name": "unknown"},
                   );
                   setState(() {});
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
