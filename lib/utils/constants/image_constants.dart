@@ -11,4 +11,9 @@ class ImageConstants {
   static const String home1_png = "assets/images/HOME1_PNG.png";
   static const String logos_n_png = "assets/images/LOGOS_N_PNG.png";
   static const String home2_png = "assets/images/HOME2_SMALLBOX_PNG.png";
+
+  //more screen
+  static const String whats_png = "assets/images/whatsapp_png.png";
+  static const String face_png = "assets/images/facebook_png.png";
+  static const String mail_png = "assets/images/gmail_png.png";
 }
