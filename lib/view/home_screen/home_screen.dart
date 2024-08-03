@@ -20,21 +20,33 @@ class HomeScreen extends StatelessWidget {
             _buildPlaySection(),
             SizedBox(height: 40),
             MoviesCardBuilderWidget(
+              haveInfocard: false,
+              title: "Previews",
               customWidth: 102,
               isCircle: true,
               posterImages: DummyDb.moviePostersListd1,
             ),
             MoviesCardBuilderWidget(
-              haveInfoCard: true,
+              haveInfocard: true,
               posterImages: DummyDb.moviePostersListd2,
+              title: "Continue Watching for Emenalo",
             ),
             MoviesCardBuilderWidget(
+              haveInfocard: false,
               posterImages: DummyDb.moviePostersListd1,
+              title: "Popular on Netflix",
             ),
             MoviesCardBuilderWidget(
+              haveInfocard: false,
               posterImages: DummyDb.moviePostersListd2,
+              title: "Trending Now",
               customHeight: 251,
               customWidth: 154,
+            ),
+            MoviesCardBuilderWidget(
+              haveInfocard: false,
+              posterImages: DummyDb.moviePostersListd1,
+              title: "Top 10 in Nigeria Today",
             ),
           ],
         ),
@@ -86,9 +98,9 @@ class HomeScreen extends StatelessWidget {
                 style: TextStyle(
                   color: ColorConstants.mainblack,
                   fontWeight: FontWeight.bold,
-                  fontSize: 14,
+                  fontSize: 19,
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -162,24 +174,21 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(ImageConstants.home2_png),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text(
-                      "#2 in Nigeria Today",
-                      style: TextStyle(
-                          fontSize: 14,
-                          color: ColorConstants.mainwhite,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(ImageConstants.home2_png),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    "#2 in Nigeria Today",
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: ColorConstants.mainwhite,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
               )
             ],
           ),

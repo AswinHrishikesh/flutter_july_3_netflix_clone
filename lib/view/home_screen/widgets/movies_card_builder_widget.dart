@@ -7,14 +7,16 @@ class MoviesCardBuilderWidget extends StatelessWidget {
     this.isCircle = false,
     this.customHeight = 161,
     this.customWidth = 103,
+    required this.title,
     required this.posterImages,
-    this.haveInfoCard = true,
+    this.haveInfocard = true,
   });
   final bool isCircle; //  true for making items circular
   final double customHeight;
   final double customWidth;
+  final String title;
   final List<String> posterImages;
-  final bool haveInfoCard;
+  final bool haveInfocard;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class MoviesCardBuilderWidget extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 15),
           child: Text(
-            "Previews",
+            title,
             style: TextStyle(
                 color: ColorConstants.mainwhite,
                 fontSize: 20,
@@ -35,45 +37,49 @@ class MoviesCardBuilderWidget extends StatelessWidget {
         SizedBox(
           height: isCircle ? customWidth : customHeight,
           child: ListView.separated(
-            padding: EdgeInsets.symmetric(horizontal: 12),
+            padding: EdgeInsets.symmetric(horizontal: 9),
             itemCount: posterImages.length,
             scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) => Container(
-              decoration: BoxDecoration(
+            itemBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.only(left: 12),
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: isCircle ? BoxShape.circle : BoxShape.rectangle,
+                  color: Colors.amber,
                   image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(posterImages[index])),
-                  color: Colors.orange,
-                  shape: isCircle ? BoxShape.circle : BoxShape.rectangle),
-              height: customHeight,
-              width: customWidth,
-              child: Visibility(
-                visible: haveInfoCard,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      height: 3,
-                      color: Colors.grey,
-                    ),
-                    Container(
-                      padding: EdgeInsets.symmetric(vertical: 7),
-                      color: ColorConstants.mainblack,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Icon(
-                            Icons.info_outline,
-                            color: Colors.white,
-                          ),
-                          Icon(
-                            Icons.more_vert,
-                            color: Colors.white,
-                          ),
-                        ],
+                      image: NetworkImage(posterImages[index]),
+                      fit: BoxFit.cover),
+                ),
+                height: customHeight,
+                width: customWidth,
+                child: Visibility(
+                  visible: haveInfocard,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                        height: 3,
+                        color: ColorConstants.grey,
                       ),
-                    )
-                  ],
+                      Container(
+                        padding: EdgeInsets.symmetric(vertical: 7),
+                        color: ColorConstants.mainblack,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Icon(
+                              Icons.info_outline,
+                              color: ColorConstants.mainwhite,
+                            ),
+                            Icon(
+                              Icons.more_vert,
+                              color: ColorConstants.mainwhite,
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
