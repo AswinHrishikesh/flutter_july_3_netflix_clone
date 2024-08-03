@@ -24,7 +24,7 @@ class MoviesCardBuilderWidget extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 15),
           child: Text(
-            "Title",
+            "Previews",
             style: TextStyle(
                 color: ColorConstants.mainwhite,
                 fontSize: 20,

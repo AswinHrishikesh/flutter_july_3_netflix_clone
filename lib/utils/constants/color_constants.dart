@@ -5,4 +5,6 @@ class ColorConstants {
   static const Color mainwhite = Color(0xffFFFFFF);
   static const Color primaryred = Color(0xffE50914);
   static const Color green = Color(0xff008000);
+  static const Color grey = Color(0xff424242);
+  static const Color blue = Color(0xff0071eb);
 }

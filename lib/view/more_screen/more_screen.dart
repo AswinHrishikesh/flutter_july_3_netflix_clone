@@ -189,7 +189,7 @@ class _MorescreenState extends State<Morescreen> {
                 ),
               ),
               Icon(
-                Icons.watch_later,
+                Icons.mail,
                 color: Colors.white,
                 size: 35,
               ),

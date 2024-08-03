@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_july_3_netflix_clone/utils/constants/color_constants.dart';
 import 'package:flutter_july_3_netflix_clone/view/coming_soon_screen/coming_soon_screen.dart';
+import 'package:flutter_july_3_netflix_clone/view/download_screen/download_screen.dart';
 import 'package:flutter_july_3_netflix_clone/view/home_screen/home_screen.dart';
 import 'package:flutter_july_3_netflix_clone/view/more_screen/more_screen.dart';
 import 'package:flutter_july_3_netflix_clone/view/search_screen/search_screen.dart';
@@ -18,7 +19,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     HomeScreen(),
     SearchScreen(),
     CommingSoonSreen(),
-    Container(color: Colors.blue),
+    DownloadScreen(),
     Morescreen(),
   ];
   @override
